@@ -1388,8 +1388,15 @@
      * @param  bool|null $quote optional auto-escape value, default to global
      * @return Miner
      */
-    public function where($column, $value, $operator = self::EQUALS, $connector = self::LOGICAL_AND, $quote = null) {
-      return $this->criteria($this->where, $column, $value, $operator, $connector, $quote);
+    public function where($column, $value = null, $operator = self::EQUALS, $connector = self::LOGICAL_AND, $quote = null)
+    {
+        if (is_array($column)) {
+            foreach ($column as $query_key => $query_value) {
+                $this->criteria($this->where, $query_key, $query_value, $operator, $connector, $quote);
+            }
+            return $this;
+        }
+        return $this->criteria($this->where, $column, $value, $operator, $connector, $quote);
     }
 
   	/**

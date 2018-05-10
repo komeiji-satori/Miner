@@ -1,5 +1,5 @@
 {
-    "name": "jstayton/miner",
+    "name": "komeiji-satori/miner",
     "type": "library",
     "description": "A dead simple PHP class for building SQL statements. No manual string concatenation necessary.",
     "keywords": ["sql", "sequel", "mysql", "postgresql", "sqlite", "statement", "statements", "query", "queries",
